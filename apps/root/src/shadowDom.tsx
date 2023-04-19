@@ -3,9 +3,10 @@ import { createPortal } from 'react-dom';
 
 type ShadowDomProps = {
   children: ReactNode;
+  id: string;
 };
 
-function ShadowDom({ children }: ShadowDomProps) {
+function ShadowDom({ children, id }: ShadowDomProps) {
   const node = useRef<HTMLElement>(null);
   const [rootNode, setRootNode] = useState<ShadowRoot>();
 
@@ -21,7 +22,7 @@ function ShadowDom({ children }: ShadowDomProps) {
 
   return (
     <>
-      <section ref={node} />
+      <section ref={node} id={id} />
       {rootNode && createPortal(children, rootNode)}
     </>
   );

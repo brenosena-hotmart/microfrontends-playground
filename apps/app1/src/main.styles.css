@@ -8,5 +8,5 @@ body {
 }
 
 .container {
-  background: var(--container-bg)
+  background: var(--container-bg);
 }

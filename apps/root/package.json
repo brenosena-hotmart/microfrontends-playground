@@ -14,7 +14,8 @@
     "jotai": "^2.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "react-shadow": "^20.0.0"
   },
   "devDependencies": {
     "@originjs/vite-plugin-federation": "^1.2.1",
