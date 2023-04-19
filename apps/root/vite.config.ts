@@ -12,14 +12,19 @@ export default defineConfig({
       remotes: {
         RemoteApp2: 'http://localhost:3002/dist/assets/remoteEntry.js',
       },
-      shared: ['react', 'react-dom', 'react-router-dom'],
+      shared: ['react', 'react-dom', 'react-router-dom', 'jotai'],
     }),
   ],
   server: {
     port: 3000,
   },
   resolve: {
-    alias: [{ find: 'src', replacement: path.resolve(__dirname, 'src') }],
+    alias: [
+      {
+        find: 'src',
+        replacement: path.resolve(__dirname, 'src'),
+      },
+    ],
   },
   build: {
     modulePreload: false,

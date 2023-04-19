@@ -1,6 +1,10 @@
+import useCounterStore from './store/counter';
+
 import './app.styles.css';
 
 function App() {
+  const [count] = useCounterStore();
+
   const handleSendEvent = () => {
     const showAlertEvent = new CustomEvent('showAlert', {
       detail: {
@@ -25,6 +29,8 @@ function App() {
       <button onClick={handleChangeBackground} type="button">
         Change background
       </button>
+
+      {count}
     </div>
   );
 }

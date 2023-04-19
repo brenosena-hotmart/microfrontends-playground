@@ -1,5 +1,6 @@
 import { useRef, useEffect, useCallback, lazy, Suspense } from 'react';
 
+import useCounterStore from 'RemoteApp2/CounterStore';
 import ShadowDom from './shadowDom';
 
 import styles from './app.styles.css?inline';
@@ -10,6 +11,7 @@ const { log: Logger } = console;
 
 function App() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [, setCount] = useCounterStore();
 
   const handlePostMessage = () => {
     iframeRef?.current?.contentWindow?.postMessage(
@@ -59,6 +61,10 @@ function App() {
 
           <button type="button" onClick={handleChangeBackground}>
             Change background
+          </button>
+
+          <button onClick={() => setCount((prev: number) => prev + 1)} type="button">
+            increase
           </button>
         </div>
       </ShadowDom>

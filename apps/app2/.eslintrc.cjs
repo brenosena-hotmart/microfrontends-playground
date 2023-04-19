@@ -16,10 +16,31 @@ module.exports = {
   plugins: ['react', 'prettier', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.tsx', '.ts'],
+      },
+    ],
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
+    'import/extensions': 'off',
     'no-undef': 'off',
     'no-alert': 'off',
+    'react/require-default-props': 'off',
+    'object-curly-newline': [
+      'error',
+      {
+        ObjectExpression: 'always',
+        ObjectPattern: {
+          multiline: true,
+        },
+        ImportDeclaration: 'never',
+        ExportDeclaration: {
+          multiline: true,
+          minProperties: 3,
+        },
+      },
+    ],
   },
 };

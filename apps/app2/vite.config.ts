@@ -12,15 +12,21 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/app.tsx',
+        './CounterStore': './src/store/counter.ts',
       },
-      shared: ['react', 'react-dom', 'react-router-dom'],
+      shared: ['react', 'react-dom', 'react-router-dom', 'jotai'],
     }),
   ],
   server: {
     port: 3002,
   },
   resolve: {
-    alias: [{ find: 'src', replacement: path.resolve(__dirname, 'src') }],
+    alias: [
+      {
+        find: 'src',
+        replacement: path.resolve(__dirname, 'src'),
+      },
+    ],
   },
   build: {
     modulePreload: false,
