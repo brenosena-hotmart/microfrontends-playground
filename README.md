@@ -25,12 +25,12 @@ This Turborepo has some additional tools already setup for you:
 - [Jest](https://jestjs.io) test runner for all things JavaScript
 - [Prettier](https://prettier.io) for code formatting
 
-### Installation
+## Installation
 
 - Download and install [NodeJS and NPM](http://nodejs.org);
 - Install [PNPM](https://pnpm.io/pt/)
 
-### Node & NPM
+### NodeJS & NPM
 
 Make sure you are using the correct [node version](.nvmrc) by running `node -v`
 
@@ -38,6 +38,12 @@ You might need to switch the current node version in use. To easily switch betwe
 
 ```sh
 nvm use 16
+```
+
+#### PNPM
+
+```sh
+npm install -g pnpm
 ```
 
 Install the project dependencies
