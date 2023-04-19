@@ -63,7 +63,7 @@ pnpm run dev
 To perform communication between the root application and an iframe you need to open chrome with the security flag disabled by running the following command in terminal
 
 ```sh
-open -na Google Chrome --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security
+open -na Google\ Chrome --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security
 ```
 
 For the root application to be able to consume the app2 package via module federation it is necessary to generate the app2 bundle

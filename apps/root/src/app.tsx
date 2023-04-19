@@ -32,6 +32,10 @@ function App() {
     [],
   );
 
+  const handleChangeBackground = () => {
+    document.documentElement.style.setProperty('--container-bg', 'gray');
+  };
+
   useEffect(() => {
     window.addEventListener('message', sendPostMessage);
     window.document.addEventListener('showAlert', showAlert);
@@ -51,6 +55,10 @@ function App() {
 
           <button type="button" onClick={handlePostMessage}>
             Send message
+          </button>
+
+          <button type="button" onClick={handleChangeBackground}>
+            Change background
           </button>
         </div>
       </ShadowDom>

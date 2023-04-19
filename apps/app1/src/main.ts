@@ -4,12 +4,13 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div class="container">
     <h2>App 1</h2>
     <button id="send-message">Send message</button>
+    <button id="change-bg">Change background</button>
   </div>
 `;
 
-const sender = document.querySelector<HTMLButtonElement>('#send-message');
+const senderBtn = document.querySelector<HTMLButtonElement>('#send-message');
 
-sender?.addEventListener('click', () => {
+senderBtn?.addEventListener('click', () => {
   window.postMessage({ 
     message: 'Send message from remote app1'
   });
@@ -22,6 +23,12 @@ sender?.addEventListener('click', () => {
 
   window?.parent.document.dispatchEvent(showAlertEvent);
 });
+
+const changeBgBtn = document.querySelector<HTMLButtonElement>('#change-bg');
+
+changeBgBtn?.addEventListener('click', () => {
+  document.documentElement.style.setProperty('--container-bg', 'yellow');
+})
 
 window.addEventListener('message', (event: MessageEvent<{ message: string }>) => {
   if(!event.origin.includes('localhost')) return;

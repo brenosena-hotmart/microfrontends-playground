@@ -27,6 +27,7 @@ module.exports = {
     'import/extensions': 'off',
     'no-undef': 'off',
     'no-alert': 'off',
+    'react/require-default-props': 'off',
     'object-curly-newline': [
       'error',
       {

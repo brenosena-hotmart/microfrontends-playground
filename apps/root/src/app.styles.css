@@ -1,3 +1,7 @@
+:root {
+  --container-bg: red;
+}
+
 .container {
-  background: red;
+  background: var(--container-bg)
 }

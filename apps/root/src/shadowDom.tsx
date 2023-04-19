@@ -21,7 +21,7 @@ function ShadowDom({ children }: ShadowDomProps) {
 
   return (
     <>
-      <span ref={node} />
+      <section ref={node} />
       {rootNode && createPortal(children, rootNode)}
     </>
   );
