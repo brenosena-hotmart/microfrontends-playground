@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback, lazy, Suspense } from 'react';
+import { useRef, useEffect, useCallback, lazy, Suspense, useState } from 'react';
 
 import useCounterStore from 'RemoteApp2/CounterStore';
 import root from 'react-shadow';
@@ -12,6 +12,7 @@ const { log: Logger } = console;
 function App() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [, setCount] = useCounterStore();
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const handlePostMessage = () => {
     iframeRef?.current?.contentWindow?.postMessage(
@@ -34,8 +35,8 @@ function App() {
     [],
   );
 
-  const handleChangeBackground = () => {
-    document.documentElement.style.setProperty('--container-bg', 'gray');
+  const handleToggleBackground = () => {
+    setIsActive((prev) => !prev);
   };
 
   useEffect(() => {
@@ -53,14 +54,14 @@ function App() {
       <root.div id="root">
         <style>{styles}</style>
 
-        <div className="container">
+        <div className={`container ${isActive ? 'active' : ''}`}>
           <h1>Root App</h1>
 
           <button type="button" onClick={handlePostMessage}>
             Send message
           </button>
 
-          <button type="button" onClick={handleChangeBackground}>
+          <button type="button" onClick={handleToggleBackground}>
             Change background
           </button>
 
