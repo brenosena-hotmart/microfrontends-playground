@@ -32,6 +32,5 @@ changeBgBtn?.addEventListener('click', () => {
 
 window.addEventListener('message', (event: MessageEvent<{ message: string }>) => {
   if(!event.origin.includes('localhost')) return;
-  console.log('foi chamado de app1');
   console.log(event.data.message);
 });
