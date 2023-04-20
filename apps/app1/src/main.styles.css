@@ -3,7 +3,11 @@ body {
   padding: 0;
 }
 
+:root {
+  --container-bg: green;
+}
+
 .container {
-  background: green;
+  background: var(--container-bg);
   color: black;
 }
