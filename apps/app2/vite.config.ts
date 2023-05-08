@@ -12,9 +12,8 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/app.tsx',
-        './CounterStore': './src/store/counter.ts',
       },
-      shared: ['react', 'react-dom', 'react-router-dom', 'jotai'],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
   server: {

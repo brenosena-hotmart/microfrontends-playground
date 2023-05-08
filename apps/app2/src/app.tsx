@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import useCounterStore from './store/counter';
+import { useEffect, useState } from 'react';
 
+import { PubSub } from 'utils';
 import styles from './app.styles.css';
 
 function App() {
-  const [count] = useCounterStore();
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [counter, setCounter] = useState<number>(0);
 
   const handleSendEvent = () => {
     const showAlertEvent = new CustomEvent('showAlert', {
@@ -21,6 +21,12 @@ function App() {
     setIsActive((prev) => !prev);
   };
 
+  useEffect(() => {
+    PubSub.subscribe('counter', (count: number) => {
+      setCounter(count);
+    });
+  }, []);
+
   return (
     <>
       <style>{styles}</style>
@@ -35,7 +41,7 @@ function App() {
           Change background
         </button>
 
-        {count}
+        <strong>{counter}</strong>
       </div>
     </>
   );

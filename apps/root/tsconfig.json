@@ -20,6 +20,6 @@
       "src/*": ["src/*"],
     }
   },
-  "include": ["src", "../app2/src/store"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

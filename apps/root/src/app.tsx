@@ -1,8 +1,8 @@
 import { useRef, useEffect, useCallback, lazy, Suspense, useState } from 'react';
 
-import useCounterStore from 'RemoteApp2/CounterStore';
 import root from 'react-shadow';
 
+import { PubSub } from 'utils';
 import styles from './app.styles.css';
 
 const RemoteApp2 = lazy(() => import('RemoteApp2/App'));
@@ -11,8 +11,8 @@ const { log: Logger } = console;
 
 function App() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [, setCount] = useCounterStore();
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [counter, setCounter] = useState<number>(0);
 
   const handlePostMessage = () => {
     iframeRef?.current?.contentWindow?.postMessage(
@@ -49,6 +49,16 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    PubSub.subscribe('counter', (count: number) => {
+      setCounter(count);
+    });
+  }, []);
+
+  const increment = () => {
+    PubSub.publish('counter', counter + 1);
+  };
+
   return (
     <>
       <root.div id="root">
@@ -65,9 +75,11 @@ function App() {
             Change background
           </button>
 
-          <button onClick={() => setCount((prev: number) => prev + 1)} type="button">
-            increase
+          <button type="button" onClick={increment}>
+            Increment Counter
           </button>
+
+          <strong>{counter}</strong>
         </div>
       </root.div>
 

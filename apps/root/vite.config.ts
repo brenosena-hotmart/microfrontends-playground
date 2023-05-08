@@ -12,7 +12,7 @@ export default defineConfig({
       remotes: {
         RemoteApp2: 'http://localhost:3002/dist/assets/remoteEntry.js',
       },
-      shared: ['react', 'react-dom', 'react-router-dom', 'jotai'],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
   server: {
