@@ -9,5 +9,10 @@ body {
 
 .container {
   background: var(--container-bg);
-  color: black;
+  color: white;
 }
+
+section {
+  border-top: 1px solid white; 
+  margin-top: 20px;
+} 

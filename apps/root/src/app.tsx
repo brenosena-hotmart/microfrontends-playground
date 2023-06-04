@@ -4,6 +4,7 @@ import root from 'react-shadow';
 
 import { PubSub } from 'utils';
 import styles from './app.styles.css';
+import ChallengeMessage from './components/ChallengeMessage';
 
 const RemoteApp2 = lazy(() => import('RemoteApp2/App'));
 
@@ -80,6 +81,8 @@ function App() {
           </button>
 
           <strong>{counter}</strong>
+
+          <ChallengeMessage />
         </div>
       </root.div>
 
@@ -90,7 +93,7 @@ function App() {
         style={{
           width: '100%',
           border: 0,
-          maxHeight: 90,
+          height: 190,
         }}
       />
 
