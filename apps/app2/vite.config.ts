@@ -12,6 +12,8 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/app.tsx',
+        './useChallenge': './src/contexts/useChallenge.tsx',
+        './ChallengeLevel': './src/components/ChallengeLevel.tsx',
       },
       shared: ['react', 'react-dom', 'react-router-dom'],
     }),
