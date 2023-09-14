@@ -10,7 +10,7 @@ This Turborepo includes the following packages and apps:
 
 - `root`: a react app
 - `app1`: a vanilla app
-- `app1`: another react app
+- `app2`: another react app
 - `eslint-config-custom`: shared `eslint` configurations
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
