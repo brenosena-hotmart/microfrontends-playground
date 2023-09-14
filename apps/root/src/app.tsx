@@ -23,7 +23,7 @@ function App() {
     );
   };
 
-  const sendPostMessage = useCallback((event: MessageEvent<{ message: string }>) => {
+  const receivePostMessage = useCallback((event: MessageEvent<{ message: string }>) => {
     if (!event.origin.includes('localhost')) return;
     Logger(event.data.message);
   }, []);
@@ -40,11 +40,11 @@ function App() {
   };
 
   useEffect(() => {
-    window.addEventListener('message', sendPostMessage);
+    window.addEventListener('message', receivePostMessage);
     window.document.addEventListener('showAlert', showAlert);
 
     return () => {
-      window.removeEventListener('message', sendPostMessage);
+      window.removeEventListener('message', receivePostMessage);
       window.document.removeEventListener('showAlert', showAlert);
     };
   }, []);

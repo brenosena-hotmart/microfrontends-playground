@@ -27,18 +27,27 @@ function App() {
     });
   }, []);
 
+  const increment = () => {
+    PubSub.publish('counter', counter + 1);
+  };
+
   return (
     <>
       <style>{styles}</style>
 
       <div className={`container ${isActive ? 'active' : ''}`}>
         <h2>App2</h2>
+
         <button onClick={handleSendEvent} type="button">
           Send event
         </button>
 
         <button onClick={handleToggleBackground} type="button">
           Change background
+        </button>
+
+        <button type="button" onClick={increment}>
+          Increment Counter
         </button>
 
         <strong>{counter}</strong>
