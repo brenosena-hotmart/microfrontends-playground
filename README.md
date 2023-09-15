@@ -12,7 +12,7 @@ This Turborepo includes the following packages and apps:
 - `app1`: a vanilla app
 - `app2`: another react app
 - `eslint-config-custom`: shared `eslint` configurations
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- `tsconfig`: `tsconfig.json` used throughout the monorepo
 
 Each package and app is 100% [TypeScript](https://www.typescriptlang.org/).
 
