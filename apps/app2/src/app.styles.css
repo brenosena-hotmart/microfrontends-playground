@@ -7,3 +7,12 @@
   background: orange;
   color: black;
 }
+
+button {
+  margin: 5px; 
+}
+
+section {
+  border-top: 1px solid white; 
+  margin-top: 20px;
+} 

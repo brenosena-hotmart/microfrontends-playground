@@ -3,7 +3,11 @@ import { useRef, useEffect, useCallback, lazy, Suspense, useState } from 'react'
 import root from 'react-shadow';
 
 import { PubSub } from 'utils';
+
+import { ChallengeProvider } from 'RemoteApp2/useChallenge';
+
 import styles from './app.styles.css';
+import ChallengeLevel from './components/ChallengeLevel';
 
 const RemoteApp2 = lazy(() => import('RemoteApp2/App'));
 
@@ -80,6 +84,10 @@ function App() {
           </button>
 
           <strong>{counter}</strong>
+
+          <ChallengeProvider>
+            <ChallengeLevel />
+          </ChallengeProvider>
         </div>
       </root.div>
 
